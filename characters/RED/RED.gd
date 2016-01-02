@@ -17,6 +17,10 @@ func _fixed_process(delta):
 			movement=moving
 		moving-=movement
 		move(movement)
+		if (moving.length_squared() == 0):
+			var p = get_pos()
+			p=Vector2(round(p.x),round(p.y))
+			set_pos(p)
 	else:
 		if (Input.is_action_pressed("up")):
 			moving = Vector2(0,-16)
@@ -30,3 +34,5 @@ func _fixed_process(delta):
 		elif (Input.is_action_pressed("right")):
 			moving = Vector2(16,0)
 			anim.play("right")
+	if (Input.is_action_pressed("ui_cancel")):
+		get_node("/root/GUI").show_msg("¡Hola a todos!\n¡Bienvenidos al\nmundo de POKÉMON!\n¡Me llamo OAK!\n¡Pero la gente me llama\nel PROFESOR POKÉMON!")
