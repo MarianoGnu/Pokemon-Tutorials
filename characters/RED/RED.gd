@@ -22,17 +22,19 @@ func _fixed_process(delta):
 			p=Vector2(round(p.x),round(p.y))
 			set_pos(p)
 	else:
-		if (Input.is_action_pressed("up")):
+		if (Input.is_action_pressed("up") && !GUI.is_visible()):
 			moving = Vector2(0,-16)
 			anim.play("up")
-		elif (Input.is_action_pressed("down")):
+		elif (Input.is_action_pressed("down") && !GUI.is_visible()):
 			moving = Vector2(0,16)
 			anim.play("down")
-		elif (Input.is_action_pressed("left")):
+		elif (Input.is_action_pressed("left") && !GUI.is_visible()):
 			moving = Vector2(-16,0)
 			anim.play("left")
-		elif (Input.is_action_pressed("right")):
+		elif (Input.is_action_pressed("right") && !GUI.is_visible()):
 			moving = Vector2(16,0)
 			anim.play("right")
-	if (Input.is_action_pressed("ui_cancel")):
-		get_node("/root/GUI").show_msg("¡Hola a todos!\n¡Bienvenidos al\nmundo de POKÉMON!\n¡Me llamo OAK!\n¡Pero la gente me llama\nel PROFESOR POKÉMON!")
+	if (Input.is_action_pressed("ui_cancel") && !GUI.is_visible()):
+		GUI.show_msg("¡Hola a todos!\n¡Bienvenidos al\nmundo de POKÉMON!\n¡Me llamo OAK!\n¡Pero la gente me llama\nel PROFESOR POKÉMON!")
+	if (Input.is_action_pressed("ui_page_up") && !GUI.is_visible()):
+		GUI.show_options()
