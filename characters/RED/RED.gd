@@ -34,7 +34,7 @@ func _fixed_process(delta):
 		elif (Input.is_action_pressed("right") && !GUI.is_visible()):
 			moving = Vector2(16,0)
 			anim.play("right")
-	if (Input.is_action_pressed("ui_cancel") && !GUI.is_visible()):
-		GUI.show_msg("¡Hola a todos!\n¡Bienvenidos al\nmundo de POKÉMON!\n¡Me llamo OAK!\n¡Pero la gente me llama\nel PROFESOR POKÉMON!")
-	if (Input.is_action_pressed("ui_page_up") && !GUI.is_visible()):
-		GUI.show_options()
+#	if (Input.is_action_pressed("ui_cancel") && !GUI.is_visible()):
+#		GUI.show_msg("¡Hola a todos!\n¡Bienvenidos al\nmundo de POKÉMON!\n¡Me llamo OAK!\n¡Pero la gente me llama\nel PROFESOR POKÉMON!")
+	if (Input.is_action_pressed("ui_start") && !GUI.is_visible()):
+		GUI.show_menu()

@@ -26,6 +26,7 @@ func _init():
 	add_user_signal("battle_animations_changed",[d])
 	d["name"]="battle_type"
 	add_user_signal("battle_type_changed",[d])
+	add_user_signal("exit")
 	
 
 func _ready():
@@ -153,8 +154,10 @@ func _process(delta):
 			save_data()
 	elif (Input.is_action_pressed("ui_cancel")):
 		hide()
+		emit_signal("exit")
 	elif (Input.is_action_pressed("ui_accept")):
 		if (index==3):
 			hide()
+			emit_signal("exit")
 	else:
 		last_input=""
