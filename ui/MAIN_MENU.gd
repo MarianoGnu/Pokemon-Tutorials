@@ -23,35 +23,28 @@ func _ready():
 	set_process(true)
 
 var index = 0
-var last_input = ""
 
 func _process(delta):
-	if (Input.is_action_pressed("down")):
-		if (!last_input == "down"):
-			last_input="down"
-			var i = index
-			while (i < entries.size()-1):
-				i+=1
-				if (entries[i].is_visible()):
-					index=i
-					break
-			update_styles()
-	elif (Input.is_action_pressed("up")):
-		if (!last_input == "up"):
-			last_input="up"
-			var i = index
-			while (i > 0):
-				i-=1
-				if (entries[i].is_visible()):
-					index=i
-					break
-			update_styles()
-	else:
-		last_input=""
+	if (INPUT.down.is_action_just_pressed()):
+		var i = index
+		while (i < entries.size()-1):
+			i+=1
+			if (entries[i].is_visible()):
+				index=i
+				break
+		update_styles()
+	if (INPUT.up.is_action_just_pressed()):
+		var i = index
+		while (i > 0):
+			i-=1
+			if (entries[i].is_visible()):
+				index=i
+				break
+		update_styles()
 	
-	if (Input.is_action_pressed("ui_accept")):
+	if (INPUT.ui_accept.is_action_just_pressed()):
 		emit_signal(signals[index])
-	if (Input.is_action_pressed("ui_cancel")):
+	if (INPUT.ui_cancel.is_action_just_pressed()):
 		hide()
 
 func update_styles():

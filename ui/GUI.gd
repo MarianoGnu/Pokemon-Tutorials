@@ -26,6 +26,8 @@ func _on_text_speed_changed(speed):
 
 func _on_menu_options():
 	menu.hide()
-	options.show()
+	menu.set_process(false)
+	show_options()
 	yield(options, "exit")
 	menu.show()
+	menu.set_process(true)

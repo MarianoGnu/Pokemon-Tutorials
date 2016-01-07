@@ -8,7 +8,13 @@ var anim
 
 func _ready():
 	anim=get_node("anim")
+	set_process(true)
 	set_fixed_process(true)
+
+func _process(delta):
+	if (moving.length_squared() == 0):
+		if (INPUT.ui_start.is_action_just_pressed() && !GUI.is_visible()):
+			GUI.show_menu()
 
 func _fixed_process(delta):
 	if (moving.length_squared() > 0):
@@ -36,5 +42,3 @@ func _fixed_process(delta):
 			anim.play("right")
 #	if (Input.is_action_pressed("ui_cancel") && !GUI.is_visible()):
 #		GUI.show_msg("¡Hola a todos!\n¡Bienvenidos al\nmundo de POKÉMON!\n¡Me llamo OAK!\n¡Pero la gente me llama\nel PROFESOR POKÉMON!")
-	if (Input.is_action_pressed("ui_start") && !GUI.is_visible()):
-		GUI.show_menu()

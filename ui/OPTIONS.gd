@@ -15,7 +15,6 @@ var current_battle_animation = CONST.OPTION_BATTLE_ANIM_ON;
 var current_battle_type = CONST.OPTION_BATTLE_TYPE_SHIFT;
 
 var index = 0
-var last_input = ""
 
 func _init():
 	var d = {}
@@ -102,62 +101,52 @@ func update_styles():
 	
 
 func _process(delta):
-	if (Input.is_action_pressed("down")):
-		if (last_input!="down"):
-			last_input="down"
-			if (index < 3):
-				index+=1
+	if (INPUT.down.is_action_just_pressed()):
+		if (index < 3):
+			index+=1
+			update_styles()
+	elif (INPUT.up.is_action_just_pressed()):
+		if (index > 0):
+			index-=1
+			update_styles()
+	elif (INPUT.right.is_action_just_pressed()):
+		if (index==0):
+			if (current_text_speed < CONST.OPTION_TEXT_SLOW):
+				current_text_speed+=1
+				emit_signal("text_speed_changed",current_text_speed)
 				update_styles()
-	elif (Input.is_action_pressed("up")):
-		if (last_input!="up"):
-			last_input="up"
-			if (index > 0):
-				index-=1
+		elif (index==1):
+			if (current_battle_animation < CONST.OPTION_BATTLE_ANIM_OFF):
+				current_battle_animation+=1
+				emit_signal("battle_animations_changed",current_battle_animation)
 				update_styles()
-	elif (Input.is_action_pressed("right")):
-		if (last_input!="right"):
-			last_input="right"
-			if (index==0):
-				if (current_text_speed < CONST.OPTION_TEXT_SLOW):
-					current_text_speed+=1
-					emit_signal("text_speed_changed",current_text_speed)
-					update_styles()
-			elif (index==1):
-				if (current_battle_animation < CONST.OPTION_BATTLE_ANIM_OFF):
-					current_battle_animation+=1
-					emit_signal("battle_animations_changed",current_battle_animation)
-					update_styles()
-			elif (index==2):
-				if (current_battle_type < CONST.OPTION_BATTLE_TYPE_SET):
-					current_battle_type+=1
-					emit_signal("battle_type_changed",current_battle_type)
-					update_styles()
-			save_data()
-	elif (Input.is_action_pressed("left")):
-		if (last_input!="left"):
-			last_input="left"
-			if (index==0):
-				if (current_text_speed > 0):
-					current_text_speed-=1
-					emit_signal("text_speed_changed",current_text_speed)
-					update_styles()
-			elif (index==1):
-				if (current_battle_animation > 0):
-					current_battle_animation-=1
-					emit_signal("battle_animations_changed",current_battle_animation)
-					update_styles()
-			elif (index==2):
-				if (current_battle_type > 0):
-					current_battle_type-=1
-					emit_signal("battle_type_changed",current_battle_type)
-					update_styles()
-			save_data()
-	elif (Input.is_action_pressed("ui_cancel")):
-		hide()
+		elif (index==2):
+			if (current_battle_type < CONST.OPTION_BATTLE_TYPE_SET):
+				current_battle_type+=1
+				emit_signal("battle_type_changed",current_battle_type)
+				update_styles()
+		save_data()
+	elif (INPUT.left.is_action_just_pressed()):
+		if (index==0):
+			if (current_text_speed > 0):
+				current_text_speed-=1
+				emit_signal("text_speed_changed",current_text_speed)
+				update_styles()
+		elif (index==1):
+			if (current_battle_animation > 0):
+				current_battle_animation-=1
+				emit_signal("battle_animations_changed",current_battle_animation)
+				update_styles()
+		elif (index==2):
+			if (current_battle_type > 0):
+				current_battle_type-=1
+				emit_signal("battle_type_changed",current_battle_type)
+				update_styles()
+		save_data()
+	elif (INPUT.ui_cancel.is_action_just_pressed()):
 		emit_signal("exit")
-	elif (Input.is_action_pressed("ui_accept")):
+		hide()
+	elif (INPUT.ui_accept.is_action_just_pressed()):
 		if (index==3):
-			hide()
 			emit_signal("exit")
-	else:
-		last_input=""
+			hide()
