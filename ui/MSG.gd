@@ -2,7 +2,6 @@
 extends Panel
 
 export(String,MULTILINE) var msg = "¡Hola a todos!\n¡Bienvenidos al\nmundo de POKÉMON!\n¡Me llamo OAK!\n¡Pero la gente me llama\nel PROFESOR POKÉMON!"
-
 var label
 var next
 var timer
