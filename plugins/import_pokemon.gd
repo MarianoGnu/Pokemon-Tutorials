@@ -39,8 +39,8 @@ func _run():
 		names.push_back(d["name"])
 		
 		pkm.id=i+1
-		pkm.attack=d["attack"]
-		pkm.catch_rate=d["catch_rate"]
+		pkm.attack=int(d["attack"])
+		pkm.catch_rate=int(d["catch_rate"])
 		pkm.name=d["name"]
 		
 		for e in d["evolutions"]:
@@ -78,16 +78,16 @@ func _run():
 		if (d["types"].size() > 1):
 			pkm.type_b = int(d["types"][1]["resource_uri"].split("/")[4])
 		pkm.short_desc = d["species"]
-		pkm.hp = d["hp"]
-		pkm.defense = d["defense"]
-		pkm.special = d["sp_atk"]
-		pkm.speed = d["speed"]
-		pkm.total = d["total"]
+		pkm.hp = int(d["hp"])
+		pkm.defense = int(d["defense"])
+		pkm.special = int(d["sp_atk"])
+		pkm.speed = int(d["speed"])
+		pkm.total = int(d["total"])
 		pkm.ev_yield = d["ev_yield"]
-		pkm.base_exp = d["exp"]
+		pkm.base_exp = int(d["exp"])
 		pkm.growth_rate = d["growth_rate"]
-		pkm.height = d["height"]
-		pkm.weight = d["weight"]
+		pkm.height = int(d["height"])
+		pkm.weight = int(d["weight"])
 		
 		print("loaded pokemon: " + pkm.get_name())
 	

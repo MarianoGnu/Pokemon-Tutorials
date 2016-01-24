@@ -6,5 +6,4 @@ export(int) var id = 0 # the id of the resource.
 export(String) var description = "" # a description of the move.
 export(int) var power = 0 # the power of the move.
 export(int) var accuracy = 0 # the accuracy of the move.
-export(int) var category = 0 # the category of the move.
 export(int) var pp = 0 # the pp points of the move.

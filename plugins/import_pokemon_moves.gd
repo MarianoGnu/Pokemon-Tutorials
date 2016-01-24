@@ -43,9 +43,9 @@ func _run():
 		p_move.id=i+1
 		p_move.name=d["name"]
 		p_move.description = d["description"]
-		p_move.power = d["power"]
-		p_move.accuracy = d["accuracy"]
-		p_move.pp = d["pp"]
+		p_move.power = int(d["power"])
+		p_move.accuracy = int(d["accuracy"])
+		p_move.pp = int(d["pp"])
 		
 		print("loaded pokemon move: " + p_move.get_name())
 	
