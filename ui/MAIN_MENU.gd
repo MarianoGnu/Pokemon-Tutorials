@@ -20,7 +20,6 @@ func _init():
 func _ready():
 	hide()
 	connect("exit", self, "hide")
-	set_process(true)
 
 var index = 0
 
@@ -45,7 +44,7 @@ func _process(delta):
 	if (INPUT.ui_accept.is_action_just_pressed()):
 		emit_signal(signals[index])
 	if (INPUT.ui_cancel.is_action_just_pressed()):
-		hide()
+		emit_signal("exit")
 
 func update_styles():
 	for p in range(entries.size()):

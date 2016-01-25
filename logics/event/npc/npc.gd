@@ -14,12 +14,16 @@ func move(direction):
 	if (direction==CONST.UP):
 		set_pos(get_pos()+Vector2(0,-16))
 		anim.play("up")
+		anim.play(0, true)
 	elif (direction==CONST.DOWN):
 		set_pos(get_pos()+Vector2(0,16))
 		anim.play("down")
+		anim.play(0, true)
 	elif (direction==CONST.LEFT):
 		set_pos(get_pos()+Vector2(-16,0))
 		anim.play("left")
+		anim.play(0, true)
 	elif (direction==CONST.RIGHT):
 		set_pos(get_pos()+Vector2(16,0))
 		anim.play("right")
+		anim.play(0, true)

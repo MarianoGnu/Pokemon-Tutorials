@@ -1,8 +1,8 @@
 
 extends Node
 
-var pkm_id
-var nickname = ""
+var pkm_id = 0
+var nickname = "" setget set_nick,get_nick
 var level = 1
 var hp = 1
 var max_hp = 1
@@ -21,6 +21,12 @@ class move_instance:
 	var pp = 5
 	var max_pp = 5
 	var mod_pp = 0
+	func get_name():
+		return DB.moves[id].name
+	func get_power():
+		return DB.moves[id].power
+	func get_acuracy():
+		return DB.moves[id].acuracy
 
 var movements = []
 
@@ -34,4 +40,11 @@ func _ready():
 	# Initialization here
 	pass
 
+func set_nick(value):
+	nickname = value
 
+func get_nick():
+	if (nickname == ""):
+		return DB.pokemons[pkm_id].name
+	else:
+		return nickname

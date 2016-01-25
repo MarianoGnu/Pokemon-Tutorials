@@ -34,6 +34,8 @@ var poke_instance_script = preload("res://logics/game_data/pokemon_instance.gd")
 
 func make_wild(level):
 	var p = poke_instance_script.new()
+	p.pkm_id = id
+	p.level = level
 	p.hp = hp
 	p.max_hp=hp
 	p.attack = attack
