@@ -7,3 +7,4 @@ export(String) var description = "" # a description of the move.
 export(int) var power = 0 # the power of the move.
 export(int) var accuracy = 0 # the accuracy of the move.
 export(int) var pp = 0 # the pp points of the move.
+export(int,"None, Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Dark, Fairy") var type = 1

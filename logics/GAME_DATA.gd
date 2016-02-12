@@ -26,7 +26,7 @@ var box19 = []
 var box20 = []
 
 func _ready():
-	party.push_back(DB.pokemons[17].make_wild(30))
+	party.push_back(DB.pokemons[7].make_wild(7))
 	party.push_back(DB.pokemons[4].make_wild(16))
 	for m in party[1].movements:
 		print (DB.moves[m.id].name)

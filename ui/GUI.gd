@@ -10,8 +10,8 @@ func _ready():
 	menu.connect("option", self, "_on_menu_options")
 	options.connect("text_speed_changed", self, "_on_text_speed_changed")
 
-func show_msg(text):
-	msg.show_msg(text)
+func show_msg(text, obj = null, sig=""):
+	msg.show_msg(text,obj,sig)
 
 func show_options():
 	options.show()

@@ -27,6 +27,8 @@ func _ready():
 	connect("area_exit",self, "on_area_exit")
 	pkmn = [pkm_id1,pkm_id2,pkm_id3,pkm_id4,pkm_id5,pkm_id6,pkm_id7,pkm_id8,pkm_id9,pkm_id10]
 	Globals.get("player").add_exeception(self)
+	for mov in get_tree().get_nodes_in_group("movable"):
+		mov.add_exeception(self)
 
 func on_area_enter(area):
 	if (area == Globals.get("player")):

@@ -32,37 +32,25 @@ func _process(delta):
 		elif (Input.is_action_pressed("up") && !GUI.is_visible()):
 			facing = CONST.UP
 			if (rays[CONST.UP].is_colliding()):
-				if ("encounter_area" in rays[CONST.UP].get_collider().get_groups()):
-					move_up()
-				else:
-					anim.play("up_hit")
+				anim.play("up_hit")
 			else:
 				move_up()
 		elif (Input.is_action_pressed("down") && !GUI.is_visible()):
 			facing = CONST.DOWN
 			if (rays[CONST.DOWN].is_colliding()):
-				if ("encounter_area" in rays[CONST.DOWN].get_collider().get_groups()):
-					move_down()
-				else:
-					anim.play("down_hit")
+				anim.play("down_hit")
 			else:
 				move_down()
 		elif (Input.is_action_pressed("left") && !GUI.is_visible()):
 			facing = CONST.LEFT
 			if (rays[CONST.LEFT].is_colliding()):
-				if ("encounter_area" in rays[CONST.LEFT].get_collider().get_groups()):
-					move_left()
-				else:
-					anim.play("left_hit")
+				anim.play("left_hit")
 			else:
 				move_left()
 		elif (Input.is_action_pressed("right") && !GUI.is_visible()):
 			facing = CONST.RIGHT
 			if (rays[CONST.RIGHT].is_colliding()):
-				if ("encounter_area" in rays[CONST.RIGHT].get_collider().get_groups()):
-					move_right()
-				else:
-					anim.play("right_hit")
+				anim.play("right_hit")
 			else:
 				move_right()
 		elif (INPUT.ui_accept.is_action_just_pressed() && !GUI.is_visible()):

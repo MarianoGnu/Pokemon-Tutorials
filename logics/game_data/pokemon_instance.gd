@@ -27,6 +27,8 @@ class move_instance:
 		return DB.moves[id].power
 	func get_acuracy():
 		return DB.moves[id].acuracy
+	func get_type_name():
+		return DB.types[DB.moves[id].type].name
 
 var movements = []
 
